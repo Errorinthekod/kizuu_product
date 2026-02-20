@@ -1,3 +1,40 @@
 from django.db import models
 
-# Create your models here.
+
+
+
+class Category(models.Model):
+    name = models.CharField('Name', max_length=255, unique=True)
+    slug = models.CharField('Slug', max_length=255, unique=True)
+    description = models.TextField('Description', max_length=500, null=True, blank=True)
+    poster = models.ImageField('Poster', null=True, blank=True, upload_to="media/categories/")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
+
+
+class Product(models.Model):
+    name = models.CharField('Name', max_length=255, null=False, blank=False)
+    slug = models.SlugField('Slug', max_length=255, null=True, blank=True)
+    description = models.TextField('Description', null=True, blank=True)
+    price = models.DecimalField('Price',max_digits=12, decimal_places=2, null=True, blank=True)
+    poster = models.ImageField('Poster',null=True, blank=True, upload_to = 'media/posters/')
+    image = models.ImageField('Image', null=True, blank=True, upload_to = 'media/images/')
+    weight = models.DecimalField('Weight', max_digits=6, decimal_places=2, null=True, blank=True)
+    is_active = models.BooleanField('Active', default=True)
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        pass
