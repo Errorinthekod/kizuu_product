@@ -30,7 +30,7 @@ class Product(models.Model):
     image = models.ImageField('Image', null=True, blank=True, upload_to = 'media/images/')
     weight = models.DecimalField('Weight', max_digits=6, decimal_places=2, null=True, blank=True)
     is_active = models.BooleanField('Active', default=True)
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
     def __str__(self):
