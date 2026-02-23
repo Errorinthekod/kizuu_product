@@ -5,4 +5,6 @@ from . import views
 urlpatterns = [
 
     path('list/', views.ProductListApiView.as_view(), name='product-list'),
+    path('create/', views.ProductCreateApiView.as_view(), name='product-create'),
+
 ]

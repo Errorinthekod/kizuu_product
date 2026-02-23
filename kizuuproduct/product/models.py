@@ -8,6 +8,7 @@ class Category(models.Model):
     slug = models.CharField('Slug', max_length=255, unique=True)
     description = models.TextField('Description', max_length=500, null=True, blank=True)
     poster = models.ImageField('Poster', null=True, blank=True, upload_to="media/categories/")
+    is_active = models.BooleanField('Active', default = True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -15,8 +16,8 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
 
 
@@ -31,10 +32,12 @@ class Product(models.Model):
     weight = models.DecimalField('Weight', max_digits=6, decimal_places=2, null=True, blank=True)
     is_active = models.BooleanField('Active', default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        pass
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
