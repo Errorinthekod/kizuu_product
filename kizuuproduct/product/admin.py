@@ -12,7 +12,7 @@ class CategoryModelAdmin(admin.ModelAdmin):
         'slug',
         'description',
         'poster',
-        'is_active',
+        'status',
         'created_at',
         'updated_at',
 
@@ -31,7 +31,7 @@ class ProductModelAdmin(admin.ModelAdmin):
         'poster',
         'image',
         'weight',
-        'is_active',
+        'status',
         'category',
         'created_at',
         'updated_at',
