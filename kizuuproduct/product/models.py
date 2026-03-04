@@ -40,7 +40,7 @@ class Product(models.Model):
     poster = models.ImageField('Poster',null=True, blank=True, upload_to = 'media/posters/')
     image = models.ImageField('Image', null=True, blank=True, upload_to = 'media/images/')
     weight = models.DecimalField('Weight', max_digits=6, decimal_places=2, null=True, blank=True)
-    status = models.BooleanField('Active', choices= Status.choises,  default=Status.ACTIVE)
+    status = models.BooleanField('Active', choices= Status.choices,  default=Status.ACTIVE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
