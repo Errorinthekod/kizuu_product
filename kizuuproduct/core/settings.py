@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # Packages
     'rest_framework',
     'django_extensions',
-    'rest_framework_simplejwt.token_blacklist'
+    'rest_framework_simplejwt.token_blacklist',
     'django_filters',
 
     # Apps
