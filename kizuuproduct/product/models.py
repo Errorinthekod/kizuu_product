@@ -68,6 +68,7 @@ class Product(models.Model):
 
     name = models.CharField('Name', max_length=255, null=False, blank=False)
     slug = models.SlugField('Slug', max_length=255, null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField('Description', null=True, blank=True)
     price = models.DecimalField('Price',max_digits=12, decimal_places=2, null=True, blank=True)
     poster = models.ImageField('Poster',null=True, blank=True, upload_to = 'media/posters/')
