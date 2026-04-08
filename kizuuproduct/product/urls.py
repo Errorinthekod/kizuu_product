@@ -5,11 +5,11 @@ from . import views
 urlpatterns = [
 
     # Products
-    path('product_list/', views.ProductListApiView.as_view(), name='product-list'),
-    path('product_create/', views.ProductCreateApiView.as_view(), name='product-create'),
-    path('product_update/<int:pk>/', views.ProductUpdateApiView.as_view(), name='product-update'),
-    path('product_detail/<int:pk>/', views.ProductDetailApiView.as_view(), name='product-detail'),
-    path('product_delete/<int:pk>/', views.ProductDeleteApiView.as_view(), name='product-delete'),
+    path('product/', views.ProductListApiView.as_view(), name='product-list'),
+    path('productc/', views.ProductCreateApiView.as_view(), name='product-create'),
+    path('<int:pk>/', views.ProductUpdateApiView.as_view(), name='product-update'),
+    path('<int:pk>/', views.ProductDetailApiView.as_view(), name='product-detail'),
+    path('<int:pk>/', views.ProductDeleteApiView.as_view(), name='product-delete'),
 
     # Categories
     path('cat_list/', views.CategoryListApiView.as_view(), name='category-list'),
